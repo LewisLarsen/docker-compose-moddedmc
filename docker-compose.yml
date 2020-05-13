@@ -1,0 +1,28 @@
+version: '3.7'
+
+networks:
+  minecraft:
+
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    container_name: modded_minecraft
+    environment:
+      EULA: "TRUE"
+      #ENABLE_RCON: "true"
+      #RCON_PASSWORD: "password"
+      #RCON_PORT: 28016
+      #ENABLE_QUERY: "true"
+      SERVER_NAME: "Docker Modded Server"
+      MOTD: "A Modded Minecraft Server Running in Docker."
+      OPS: "UFPInfinity"
+      TYPE: "FORGE"
+      GENERIC_PACK: "https://media.forgecdn.net/files/2929/251/SERVERZIP.zip"
+    restart: always  
+    ports:
+      - "25566:25565" # Minecraft Connection Port
+      #- "28016:28016" # Rcon
+    volumes:
+      - ./src:/data
+    networks:
+      - minecraft
