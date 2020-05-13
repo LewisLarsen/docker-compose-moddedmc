@@ -16,6 +16,11 @@ Once that has done, the only thing left is to build the container so the server 
 ```
 docker-compose up --d --build
 ```
+Or if you don't want to build it (e.g. subsequent starts/stops)
+```
+docker-compose up --d 
+```
+
 
 Open Minecraft and connect,  it should work! 
 
